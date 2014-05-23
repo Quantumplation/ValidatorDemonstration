@@ -26,6 +26,40 @@ namespace ValidatorDemo
             DoAs(new PermissionsAgent());
             Console.WriteLine("Everything with even Id filtered, buildings have name fuzzed: ");
             DoAs(new OddFuzzAgent());
+
+            /* Output:
+                Everything allowed:
+                1 Metrotech
+                3 floors
+                 - 5
+                 - 6
+                 - 7
+
+                Everything denied:
+                EX: DENIED
+
+                Floors all denied:
+                1 Metrotech
+                EX: DENIED
+
+                Everything filtered:
+                Building not found
+
+                Everything with even Id filtered:
+                1 Metrotech
+                2 floors
+                 - 5
+                 - 7
+
+                Only persistables 1, 5, and 6 allowed:
+                Building not found
+
+                Everything with even Id filtered, buildings have name fuzzed:
+                Fuzzed Name
+                2 floors
+                 - 5
+                 - 7
+             */
         }
 
         public static void DoAs(Agent a)
