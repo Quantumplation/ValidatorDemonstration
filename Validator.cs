@@ -55,6 +55,32 @@ namespace ValidatorDemo
         }
     }
 
+    public class AllowValidator : Validator
+    {
+        private int id = 0;
+
+        public AllowValidator(int i)
+        {
+            id = i;
+        }
+        public override void GetFilter<T>(ICollection<T> allowedItems, ICollection<T> filteredItems)
+        {
+            foreach (var item in filteredItems)
+            {
+                if (item.Id == id)
+                    allowedItems.Add(item);
+            }
+            foreach (var item in allowedItems)
+            {
+                filteredItems.Remove(item);
+            }
+        }
+
+        public override void GetFuzz<T>(ICollection<T> items)
+        {
+        }
+    }
+
     public class FilterEvenValidator : Validator
     {
         public override void GetFilter<T>(ICollection<T> allowedItems, ICollection<T> filteredItems)

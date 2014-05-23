@@ -68,4 +68,14 @@ namespace ValidatorDemo
             yield return new FuzzBuildingNameValidator();
         }
     }
+
+    public class ExplicitAgent : Agent
+    {
+        public override IEnumerable<Validator> GetValidators()
+        {
+            yield return new FilterAllValidator();
+            yield return new AllowValidator(1);
+            yield return new AllowValidator(5);
+        }
+    }
 }

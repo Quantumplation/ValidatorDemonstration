@@ -26,6 +26,8 @@ namespace ValidatorDemo
             DoAs(new PermissionsAgent());
             Console.WriteLine("Everything with even Id filtered, buildings have name fuzzed: ");
             DoAs(new OddFuzzAgent());
+            Console.WriteLine("Only Id 1 and 5: ");
+            DoAs(new ExplicitAgent());
 
             /* Output:
                 Everything allowed:
@@ -59,6 +61,11 @@ namespace ValidatorDemo
                 2 floors
                  - 5
                  - 7
+
+                Only Id 1 and 5:
+                1 Metrotech
+                1 floors
+                 - 5
              */
         }
 
